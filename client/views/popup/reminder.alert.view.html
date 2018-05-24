@@ -1,0 +1,15 @@
+<!-- 推出登录弹框 -->
+<script type="text/ng-template" id="logout.html">
+    <form ng-submit="submitlogout()">
+        <div class="modal-header" style="height: 60px;">
+            <h4 class="modal-title" id="modal-title" style="font-size: 20px; font-weight: bold;margin-bottom: 20px;">提示</h4>
+        </div>
+        <div class="modal-body">
+            <p style="font-size: 20px;line-height: 30px;" ng-bind="alertText"></p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" type="button" ng-click="cancelLogOutModel()">取消</button>
+            <button type="submit" class="btn btn-primary">提交</button>
+        </div>
+    </form>
+</script>

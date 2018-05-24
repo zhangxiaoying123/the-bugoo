@@ -1,0 +1,11 @@
+<!--页面top-->
+<div class="col-xs-12 publicTitle" ng-controller="PublicTitleController">
+    <p class="clearfix">
+        Bugoo
+        <span class="administratorInfo">
+            {{adminInfo.adminName}}
+            <img ng-src="{{adminInfo.adminIcon}}" ng-click="openAdministratorInfoModel()">
+            <span class="caret"></span>
+        </span>
+    </p>
+</div>

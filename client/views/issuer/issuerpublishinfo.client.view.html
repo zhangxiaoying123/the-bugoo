@@ -1,0 +1,134 @@
+<!-- 发行管理 -->
+<script type="text/ng-template" id="issuerpublishinfo.html">
+    <div>
+        <div class="modal-header clearfix">
+            <h4 class="modal-title" id="modal-title" style="font-size: 20px;font-weight: bold;">
+            发行管理
+            <p style="float: right;">
+                <button class="btn-sm aline" type="button" ng-click="cancelLogOutModel()">取消</button>
+                <button class="btn btn-info btn-sm" ng-click="submitlogout()" ng-disabled="form.start.$dirty && form.start.$invalid ||form.end.$dirty && form.end.$invalid || myForm.price.$dirty && myForm.price.$invalid">保存</button>
+            </p>
+        </h4>
+        </div>
+        <div class="modal-body">
+            <div class="issuerPublishModelTop">
+                <img ng-src="{{issuerPublishInfo.smallImage}}">
+                <span ng-bind="issuerPublishInfo.username"></span>
+            </div>
+            <div class="issuerPublishInput">
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <a href="#/thefirstissuer" class="col-xs-12 issuerInfoTitle" style="color: black;">首次发行</a>
+                        <form class="form-horizontal" role="form" name="form">
+                            <div class="form-group col-xs-12">
+                                <label class="col-xs-3 control-label" for="launch">上市时间</label>
+                                <div class="col-xs-9">
+                                    <p class="form-control" ng-bind="issuerPublishInfo.launch | date:'yyyy/MM/dd HH:mm'"></p>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <label class="col-xs-3 control-label" for="start">申购开始</label>
+                                <div class="col-xs-6">
+                                    <input class="form-control" name="start" id="start" type="date" ng-model="issuerPublishInfo.start" required>
+                                    <span style="color:red" ng-show="form.start.$dirty && form.start.$invalid">
+                                        <span ng-show="form.start.$error.required">*申购开始时间必填</span>
+                                    </span>
+                                </div>
+                                <div class="col-xs-3">
+                                    <span class="setHour">21:00</span>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <label class="col-xs-3 control-label" for="end">申购结束</label>
+                                <div class="col-xs-6">
+                                    <input class="form-control" id="end" type="date" name="end" ng-model="issuerPublishInfo.end" ng-change="getMarketTime()" required>
+                                    <span style="color:red" ng-show="form.end.$dirty && form.end.$invalid">
+                                        <span ng-show="form.end.$error.required">*申购结束时间必填</span>
+                                    </span>
+                                </div>
+                                <div class="col-xs-3">
+                                    <span class="setHour">21:00</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-xs-6 circulation">
+                        <form class="form-horizontal" role="form" name="myForm">
+                            <div class="form-group col-xs-12">
+                                <label class="col-xs-3 control-label" for="quantity">发行量</label>
+                                <div class="col-xs-9">
+                                    <input class="form-control" id="quantity" type="text" readonly ng-model="issuerPublishInfo.quantity"/>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <label class="col-xs-3 control-label" for="price">发行价格</label>
+                                <div class="col-xs-9">
+                                    <input class="form-control" name="price"   id="price" type="text" ng-model="issuerPublishInfo.price" required>
+                                    <span style="color:red" ng-show="myForm.price.$dirty && myForm.price.$invalid">
+                                        <span ng-show="myForm.price.$error.required">*申购价格必填</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <label class="col-xs-3 control-label" for="price">发行模式</label>
+                                <div class="col-xs-9">
+                                    <select class="form-control">
+                                        <option>非保底发行 - 20%预付</option>
+                                        <option>非保底发行 - 10%预付</option>
+                                        <option>保底发行 - 5%保底</option>
+                                      </select>
+                                    <span style="color:red" ng-show="myForm.price.$dirty && myForm.price.$invalid">
+                                        <span ng-show="myForm.price.$error.required">*申购价格必填</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="issuerPublishDate">
+                <div class="col-xs-6">
+                    <div class="form-horizontal">
+                        <div class="form-group col-xs-12">
+                            <h1 class="subscriptionData">申购数据</h1>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <p class="col-xs-12">累计申购量：<span ng-bind="getIssuerDataListinfo.applyNum"></span></p>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <p class="col-xs-12">累计申购人数：<span ng-bind="getIssuerDataListinfo.applyPeopleSum"></span> 人</p>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <p class="col-xs-12">实时中签率：<span ng-bind="getIssuerDataListinfo.luckDraw"></span></p>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <p class="col-xs-12"><button class="btn-sm aline" ng-click="openDateListModel()">数据明细</button></p>
+                        </div>
+                    </div>   
+                </div> 
+                <div class="col-xs-6">
+                    <div class="form-horizontal">
+                        <div class="form-group col-xs-12">
+                            <h1 class="issuanceOfIncome">发行收入</h1>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <p class="col-xs-12">发行人总收入：&nbsp;&nbsp;&nbsp;<span ng-bind=""></span></p>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <p class="col-xs-12">冻结收入：&nbsp;&nbsp;&nbsp;<span ng-bind=""></span></p>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <p class="col-xs-12">已冻结收入：&nbsp;&nbsp;&nbsp;<span ng-bind=""></span></p>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <p class="col-xs-4"><button class="btn-sm thaw" ng-click="">解冻预付金</button></p>
+                            <p class="col-xs-4"><button class="btn-sm aline" ng-click="">数据明细</button></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer"></div>
+        <ng-include src="'/client/views/issuer/issuerdatalistinfo.client.view.html'"></ng-include>
+    </div>
+</script>

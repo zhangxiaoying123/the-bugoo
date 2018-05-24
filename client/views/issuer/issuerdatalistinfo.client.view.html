@@ -1,0 +1,77 @@
+<!-- 申购明细 -->
+<script type="text/ng-template" id="issuerdatalistinfo.html">
+    <form>
+        <div class="modal-header clearfix">
+            <h4 class="modal-title" id="modal-title" style="font-size: 20px;font-weight: bold;">
+                申购明细
+                <span class="btn btn-primary btn-sm" type="button" ng-click="cancelLogOutModel()" style="float: right;">返回</span>
+            </h4>
+        </div>
+        <div class="modal-body issuerDataListInfoModelWrapper">
+            <div class="issuerDataListInfoModelTop">
+                <img ng-src="{{issuerData.smallImage}}">
+                <div>
+                    <p ng-bind="issuerData.username">孙晓敏</p>
+                    <p>
+                        <span>累计申购量：{{issuerData.applyNum}}</span>&nbsp;&nbsp;&nbsp;
+                        <span>累计申购人数：{{issuerData.applyPeopleSum}}人</span>&nbsp;&nbsp;&nbsp;
+                        <span>实时中签率：{{issuerData.luckDraw}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="tableForDataList">
+                <div class="col-xs-6">
+                    <table class="table">
+                        <caption>申购订单明细</caption>
+                        <thead>
+                            <tr>
+                                <th>用户名</th>
+                                <th>时间</th>
+                                <th>订单量</th>
+                                <th>中签量</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="order in issuerSubscribeOrderList">
+                                <td ng-bind="order.name">sunxiaomin</td>
+                                <td ng-bind="order.craeted_time | date:'yyyy-MM-dd'">2017-10-22 12:40:00</td>
+                                <td ng-bind="order.quantity">1200</td>
+                                <td ng-bind="order.success_count">1200</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                <!-- 分页 -->
+                    <div align="ceneter" class="col-xs-12 paginationBox">
+                        <uib-pagination ng-model="issuerSubscribeOrderPagination.currPage" ng-change="updateCurrPageIssuerOrder()" total-items="issuerSubscribeOrderPagination.totalIssuerSubscribeOrder" max-size="issuerSubscribeOrderPagination.maxSize" items-per-page="issuerSubscribeOrderPagination.issuerSubscribeOrderLimit" force-ellipses="true"></uib-pagination>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <table class="table">
+                        <caption>申购用户明细</caption>
+                        <thead>
+                            <tr>
+                                <th>用户名</th>
+                                <th>申购配额</th>
+                                <th>申购量</th>
+                                <th>中签量</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="user in issuerSubscribeUserList">
+                                <td ng-bind="user.name">sunxiaomin</td>
+                                <td ng-bind="user.subscribeLimit">10000</td>
+                                <td ng-bind="user.quantity">1200</td>
+                                <td ng-bind="user.success_count">1200</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- 分页 -->
+                    <div align="ceneter" class="col-xs-12 paginationBox">
+                        <uib-pagination ng-model="issuerSubscribeUserPagination.currPage" ng-change="updateCurrPageIssuerUser()" total-items="issuerSubscribeUserPagination.totalissuer" max-size="issuerSubscribeUserPagination.maxSize" items-per-page="issuerSubscribeUserPagination.issuerSubscribeUserLimit" force-ellipses="true"></uib-pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer" style="border-top: none;"></div>
+    </form>
+</script>

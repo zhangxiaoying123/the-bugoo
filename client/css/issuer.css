@@ -1,0 +1,357 @@
+.issuerWrapper{
+    width: 100%;
+    padding: 40px 15px 0;
+}
+.issuerSearchType li{
+    display: inline-block;
+    width: 60px;
+    border: 1px solid #ddd;
+    margin-left: 20px !important;
+    border-radius: 5px;
+}
+.issuerSearchType li a{
+    color: block;
+}
+.searchText {
+    margin: 20px 0;
+    width: 500px;
+    position: relative;
+}
+table tr,
+table th,
+table td{
+    text-align: center;
+    vertical-align: middle!important;
+}
+.issuerWrapper table{
+    background: #fff;
+}
+.issuerWrapper table thead{
+    height: 40px;
+}
+.issuerWrapper table tbody tr:hover{
+    background: rgb(219, 220, 223);
+}
+.issuerWrapper table td img{
+    width: 60px;
+}
+.issuerWrapper table th p{
+    display: inline-block;
+    height: 100%;
+    width: 12px;
+    cursor: pointer;
+    vertical-align: middle;
+    position: relative;
+}
+.issuerWrapper table th p span{
+    height: 8px;
+    position: absolute;
+}
+.issuerWrapper table th p .upBtn{
+    transform-origin:center center;
+    transform: rotate(180deg);
+    top: -10px;
+}
+.searche{
+    padding: 6px 17px;
+    background: rgb(93, 218, 238);
+    color: white;
+    position: absolute;
+    top: 0;
+    right: -70px;
+}
+.searche:hover{
+    cursor: pointer;
+    background: rgb(101, 205, 221);
+}
+.emptye{
+    padding: 6px 17px;
+    background: rgb(58, 65, 82);
+    color: white;
+    /* border-radius: 5px; */
+    position: absolute;
+    top: 0;
+    right: -140px;
+}
+.emptye:hover{
+    cursor: pointer;
+    background: rgb(74, 81, 100);
+}
+
+
+
+/*资料管理弹框*/
+.issuerInfoTopWrapper{
+    height: 200px;
+}
+.issuerInfoTopWrapper .issuerInfoTopWrapperLeft .issuerInfoIcon{
+    width: 100%;
+    height: 100px;
+}
+.issuerInfoTopWrapper .issuerInfoTopWrapperLeft .issuerInfoReplace{
+    margin-top: 35px;
+    position: relative;
+}
+.issuerInfoTopWrapper .issuerInfoTopWrapperLeft .issuerInfoReplace span{
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #414A5C;
+    color: #fff;
+    height: 30px;
+    font-size: 16px;
+    line-height: 30px;
+    border-radius: 4px;
+}
+.issuerInfoTopWrapper .issuerInfoTopWrapperLeft>div input{
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    top: 0;
+    left: 10%;
+    border-radius: 4px;
+    opacity: 0;
+    outline: none;
+    cursor: pointer;
+}
+.issuerInfoTitle{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: 100%;
+    margin-left: 18px;
+}
+/*发行管理弹框*/
+.issuerPublishModelTop{
+    width: 100%;
+}
+.issuerDataListInfoModelTop img,
+.issuerPublishModelTop img{
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+.issuerPublishModelTop span{
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.issuerPublishInput{
+    margin-top: 30px;
+    height: 180px;
+}
+.issuerPublishInput label{
+    color: #838383;
+}
+.issuerPublishDate{
+    /* height: 30px; */
+}
+.issuerPublishDate p{
+    text-align: left;
+    color: #838383;
+    vertical-align: middle;
+    line-height: 30px;
+    margin-left: 13px;
+}
+.subscriptionData{
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 28px;
+    margin-top: 30px;
+}
+.issuanceOfIncome{
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 28px;
+    margin-top: 30px;
+}
+.aline{
+    /* display: inline; */
+    background: rgb(58, 65, 82);
+    color: white;
+}
+.thaw{
+    /* display: inline; */
+    background: rgb(255, 64, 70);
+    color: white;
+}
+/* .advance{
+    display: inline;
+} */
+.setHour{
+    line-height: 34px;
+    color: red;
+    font-size: 16px;
+}
+/* 发行量距上边距离 */
+.circulation{
+    margin-top: 30px;
+}
+/*申购明细弹窗*/
+.issuerDataListInfoModelTop{
+    width: 100%;
+}
+.issuerDataListInfoModelTop>div{
+    display: inline-block;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+.issuerDataListInfoModelTop>div p:nth-child(1){
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 40px;
+}
+.issuerDataListInfoModelTop>div p:nth-child(2){
+    color: #8A8A8A;
+}
+.tableForDataList{
+    width: 100%;
+    margin-top: 30px;
+}
+.tableForDataList table caption{
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.tableForDataList table thead{
+    background: #8E929D;
+    color: #fff;
+}
+
+ /* 发行人收入明细   点击首次发行  */
+.theFirstIssuer{
+    width: 100%;
+    height: 100%;
+    background: white;
+    padding: 30px 200px;
+    box-sizing: border-box;
+}
+.income{
+    font-size: 25px;
+    font-weight: bold;
+    display: inline-block;
+}
+.back{
+    padding: 6px 18px;
+    background: rgb(58, 65, 82);
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    right: 200px;
+}
+.back:hover{
+    background: rgb(74, 81, 100);
+    color: white;
+}
+.issuerInformation img{
+    width: 100px;
+    height: 100px;
+}
+.issuerInformation{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.inFormation{
+    margin-left: 20px;
+}
+.inFormation p:nth-of-type(1){
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+.inFormation p:nth-of-type(2) span{
+    font-size: 12px;
+    margin-right: 40px;
+}
+.record{
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(55, 55, 99);
+}
+.recordTable{
+    margin-top: 30px;
+}
+.formTable{
+    margin-top: 10px;
+    padding-bottom: 235px;
+}
+.formTable li{
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+.formTable li:nth-of-type(1){
+    background: rgb(240, 240, 240);
+}
+.formTable li p{
+    width: 20%;
+}
+
+/* 内容管理  文章 */
+.articleMain table{
+    width: 100%;
+}
+.SearchText{
+    margin: 120px 0 10px 20px;
+    width: 200px;
+    position: relative;
+}
+.img-one{
+    width: 60px;
+    height: 60px;
+}
+.editor{
+    padding: 6px 17px;
+    background: rgb(58, 65, 82);
+    color: white;
+}
+.editor:hover{
+    cursor: pointer;
+    background: rgb(74, 81, 100);
+}
+
+.cancelRelease{
+    padding: 6px 17px;
+    background: rgb(58, 65, 82);
+    color: white;
+}
+.cancelRelease:hover{
+    cursor: pointer;
+    background: rgb(74, 81, 100);
+}
+
+.del{
+    padding: 6px 17px;
+    background: rgb(58, 65, 82);
+    color: white;
+}
+.del:hover{
+    cursor: pointer;
+    background: rgb(74, 81, 100);
+}
+
+.release{
+    padding: 6px 17px;
+    background: rgb(93, 218, 238);
+    color: white;
+}
+.release:hover{
+    cursor: pointer;
+    background: rgb(101, 205, 221);
+}
+.articleMain table{
+    width: 100%;
+}
+.articleMain th{
+    height: 50px;
+}
+.articleMain span{
+    margin-left: 5px;
+}
+    

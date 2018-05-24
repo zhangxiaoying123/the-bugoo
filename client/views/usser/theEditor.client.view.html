@@ -1,0 +1,489 @@
+<!-- 编辑 -->
+
+<div>
+<div class="editormenu">
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title> -->
+    <!-- <link rel="stylesheet" type="text/css" href="http://src.hhz1.cn/static/wangEditor.min.css?qqss">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" type="text/css" href="http://src.hhz1.cn/static/jquery.tag-editor.css">
+    <link rel="stylesheet" href="http://src.hhz1.cn/./pc_editor/index_b16fe9ac8e3b64260b23.css">
+    <link rel="stylesheet" href="http://src.hhz1.cn/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://src.hhz1.cn/static/css/cropper.css">
+    <link rel="stylesheet" href="http://src.hhz1.cn/static/css/myCrop.css?2"> -->
+    <!-- <script type="text/javascript" src="http://src.hhz1.cn/static/js/jquery.min.js" ></script>
+    <script type="text/javascript" src="http://src.hhz1.cn/static/js/exif.js"></script>
+    <script type="text/javascript" src="http://src.hhz1.cn/static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://src.hhz1.cn/static/js/cropper.js?qwe"></script>
+    <script type="text/javascript" src="http://src.hhz1.cn/static/js/myCrop.js?v=1.0.4s"></script>
+    <script type="text/javascript" src="http://src.hhz1.cn/static/jquery.form.min.js" ></script> -->
+    <script type="text/javascript">
+        function ajaxSubmitForm() {
+            var option = {
+                url :"/pc_editor/uploadbanner",
+                type : 'POST',
+                success : function(data) {
+                    data=jQuery.parseJSON(data)
+                    console.log(data)
+                    $("#showImg").attr("src",data.data.cover_pic_url_jpg)
+                    $("#showImg").attr("data-id",data.data.pic_id)
+                    $("#inputImage").val('');
+
+                },
+                error:  function(XMLHttpRequest, textStatus, errorThrown) {
+                    $("#inputImage").val('');
+
+                }
+            };
+            $("#form_banner").ajaxSubmit(option);
+            return false;
+        }
+    </script>
+    <script type="text/javascript">
+        var fileImg = "";
+        $(function(){
+
+            $("#imgCutConfirm").bind("click",function(){
+                $("#containerDiv").hide();
+                $("#banner_section").hide();
+                $("#imgEdit").hide();
+                $("#getCroppedCanvasModal").modal("hide");
+            })
+        })
+    </script>
+<!-- <section class="nav-top">
+    <a href="/officialWeb/blankList" class="nav-logo"><img src="http://img.hhz1.cn/Op-imageShow/46947305o01g00000onikuh?iv=1"></a>
+    <ul class="nav-left">
+        <li>写文章</li>
+        <li>编辑中</li>
+    </ul>
+    <ul class="nav-right">
+        <li id="mobile-preview"><img src="http://img.hhz1.cn/Op-imageShow/d3159301401400000onilms?iv=1"> 预览手机版</li>
+
+
+        <li style="color:#ececec;font-size:30px;">&sdot;</li>
+        <li id="save-draft">保存草稿</li>
+
+        <li class="submit" id='btn1'><span>发布文章</span></li>
+    </ul>
+</section> -->
+<section class="warming-section">
+    <div class="warming-toast">
+        <!-- <p class="warming-toast-title">删除</p> -->
+        <p class="warming-toast-content">内容有更新，是否覆盖？</p>
+        <ul>
+            <li calss="toast-cancel" id="toast-cancel" style="color:#888;border-right: 1px solid #f5f5f5;">覆盖</li>
+            <li calss="toast-comfire" id="toast-comfire">取消</li>
+        </ul>
+    </div>
+</section>
+
+<section class="delete-section">
+    <div class="delete-toast">
+        <!-- <p class="warming-toast-title">删除</p> -->
+        <p class="delete-toast-content">是否删除</p>
+        <ul>
+            <li class="delete-cancel" id="delete-cancel" style="color:#888;border-right: 1px solid #f5f5f5;">取消</li>
+            <li class="delete-comfire" id="delete-comfire">确认</li>
+        </ul>
+    </div>
+</section>
+
+<!-- <section class="nav-seize-a-seat"></section> -->
+<div id="result"></div>
+<section id="publish-toast">
+    <div class="publish-toast">
+        <ul>
+            <li class="warming-img"><img src="http://img.hhz1.cn/Op-imageShow/46800301e01e00000oniv5q?iv=1"></li>
+            <li class="warming-text"></li>
+        </ul>
+    </div>
+</section>
+<section id="banner_section" style="display: none;">
+    <div class="container1" style="padding: 0;" id="containerDiv" style="background: #626262">
+        <div class="row" style="display: none;" id="imgEdit">
+            <div class="col-md-9">
+                <div class="img-container">
+                    <img src="" alt="Picture">
+                </div>
+            </div>
+        </div>
+        <div class="row" id="actions" style="padding: 0;margin: 0;width: 100%;">
+            <div class="col-md-9 docs-buttons" style="width:216px;margin:0 auto;float: none;">
+                <div class="btn-group" >
+                    <button type="button" class="btn btn-primary" data-method="destroy" title="Destroy" style="height: auto;padding:0;">
+                <span class="docs-tooltip" data-toggle="tooltip" style="background:white;color:#888;">
+                  <span class="fa fa-power-off" >取消</span>
+                </span>
+                    </button>
+                </div>
+
+                <div class="btn-group btn-group-crop " style="float: right;">
+                    <button type="button" class="btn btn-primary" id="imgCutConfirm" onclick="ajaxSubmitForm()" data-method="getCroppedCanvas" data-option="{ &quot;width&quot;: 688, &quot;height&quot;: 344 }" style="height: auto;padding:0;">
+                        <span class="docs-tooltip" data-toggle="tooltip" title="">确认</span> <!--cropper.getCroppedCanvas({ width: 320, height: 180 }) -->
+                    </button>
+
+                </div>
+
+            </div><!-- /.docs-buttons -->
+        </div>
+    </div>
+</section>
+<section data-preview="1" id="preview" style="display:none;">
+    <div id="mobile-moddle"><iframe id="iframe-preview" src="" scrolling="auto"></iframe>
+    </div>
+</section>
+<section id="tag-section">
+    <div class="tag-container">
+        <div class="tag-nav">
+            <ul>
+                <li class="tag-nav-title">版权声明</li>
+                <li class="tag-nav-close"><img src="http://img.hhz1.cn/Op-imageShow/e6305301401400000ongyg1?iv=1"></li>
+            </ul>
+        </div>
+        <div class="originalStatement">
+            <!-- <div class="originalStatement-content">
+               
+            </div> -->
+            <div class="original-content">
+
+                <span class="original-tag" data-id="0"></span>
+                <!-- <span>我承诺这是我的原创内容</span> -->
+
+            </div>
+        </div>
+        <div class="tag-publish">
+            <ul>
+                <li class="tag-publish-issue">发布</li>
+                <li class="tag-publish-close">取消</li>
+            </ul>
+        </div>
+        <!--             <div class="tag-add" data-tag="">
+                        <p class="add-title" class="add-content">添加合适的标签，能方便分类查找</p>
+                        <div>
+                            <div style="height:68px;line-height:68px;">
+
+
+                                <textarea id="hero-demo" style="display:none;"></textarea>
+
+
+                            </div>
+                        </div>
+                        <div>
+                            <div calss="common-title" style="padding-top: 40px;padding-bottom: 4px;border-top:1px solid #2db7b5 ;font-size: 14px;color:#888;position:relative;"><p class="tag-warm" >最多只能添加5个标签哦~</p>看看大家的标签</div>
+                            <div class="common-tag">
+
+                                <span class="tagSpan">生活技能</span>
+
+                                <span class="tagSpan">装修经验</span>
+
+                                <span class="tagSpan">好物测评</span>
+
+                                <span class="tagSpan">DIY</span>
+
+                            </div>
+                            <div class="original-content">
+
+                                <span class="original-tag" data-id="0"></span>
+                                <span>我承诺这是我的原创内容</span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tag-publish">
+                        <ul>
+                            <li class="tag-publish-close">取消</li>
+                            <li class="tag-publish-issue">发布</li>
+                        </ul>
+                    </div>
+
+
+                    <script type="text/javascript">
+                                var tag_pbArr = $("#hero-demo").text().split(",")
+                                var tag_pb = $("#hero-demo").text().replace(/,/ig," ");
+                                $("#hero-demo").text(tag_pb);
+                                var commmon_tags=$(".tagSpan");
+                                console.log(commmon_tags);
+                                for(var j=0;j<commmon_tags.length;j++){
+                                    console.log("dddd")
+                                    for(var i in tag_pbArr){
+                                        if(tag_pbArr[i] == commmon_tags[j].innerHTML){
+                                            commmon_tags[j].style.background="#eaf8f7";
+                                            commmon_tags[j].style.color="#2db7b5";
+                                            break;
+                                        }
+                                        else{
+
+                                            commmon_tags[j].style.background="#f8f8f8";
+                                            commmon_tags[j].style.color="#959595";
+                                        }
+                                    }
+                                }
+                    </script>
+                     -->
+
+
+
+    </div>
+</section>
+
+<section class="neditor-container" data-id="0000ms2050029zxn" data-version ="2cbc09d2cd6ec67c65975ca38298a2e0" data-status="0">
+
+    <div class="article">
+        <h1 class="eeditor">编辑文章</h1>
+        <div class="twistBtn">
+            <a class="closee" href="#/article">关闭</a>
+            <button class="save">保存草稿</button>
+        </div>
+    </div>
+
+    <div class="container-cover">
+        <form id="form_banner" enctype="multipart/form-data">
+            <input id="photoBtn" type="button" onclick="document.getElementById('inputImage').click()" value="选择照片">
+            <input  id="inputImage"  type="file" accept="image/*" name="uploadx"/>
+            <input  id="Coordinatex" name="datax"   type="text" value="" />
+            <input  id="Coordinatey" name="datay"   type="text" value="" />
+            <input  id="Coordinatew" name="dataw"   type="text" value="" />
+            <input  id="Coordinateh" name="datah"   type="text" value="" />
+            <input  id="web_token" name="datatoken"   type="text" value="" />
+            <input type="button" onclick="ajaxSubmitForm()"  id="submit_photo" name="提交">
+
+            <img  id="showImg" data-id=""/>
+
+            <div id="select-pic">
+                <div><img src="http://img.hhz1.cn/Op-imageShow/a8499302o02o00000onipwk?iv=1"></div>
+                <p>点击添加封面图片</p>
+            </div>
+        </form>
+        <div class="cover-delete"></div>
+
+    </div>
+
+    <div class="cent">
+        <p>
+            <span style="margin-right: 10px;">更新时间</span>
+            2018-04-20&nbsp;&nbsp;14:00:24
+        </p>
+        <p>
+            <span style="margin-right: 35px;">状态</span>
+            待发布&nbsp;&nbsp;2018-04-21&nbsp;&nbsp;20:00:00
+        </p>
+        <p>
+            <span style="margin-right: 24px;">创建人</span>
+            zxy
+        </p>
+        <p>
+            <span style="margin-right: 12px;">创建时间</span>
+            2018-04-16&nbsp;&nbsp;18:00:16
+        </p>
+    </div>
+
+    <section class="cent-bottom">
+        <input class="neditor-title" type="" name="" placeholder="添加标题">
+        <input class="neditor-author" type="" name="" placeholder="添加作者">
+    
+        <div id="editor-container">
+            <div id="editor-trigger" style="min-height:300px;border:none;"></div>
+        </div>
+    
+        <div class="append-content" style="display:none;">
+            <div class="append-content-title" data-title="">
+    
+            </div>
+            <div class="append-content-cover" data-cover="">
+            </div>
+            <div class="append-content-editor" data-content="">
+    
+            </div>
+        </div>
+
+    </section>
+</section>
+<!-- <script src="http://www.jq22.com/jquery/jquery-ui-1.10.2.js"></script>
+<script src="http://src.hhz1.cn/static/jquery.caret.min.js"></script>
+
+<script src="http://src.hhz1.cn/static/jquery.tag-editor.js"></script> -->
+<script type="text/javascript">
+    var body_height= window.screen.availHeight;
+    console.log(body_height)
+    $('#tag-section').height(body_height);
+    $('#preview').height(body_height);
+</script>
+<script>
+    (function($) {
+        var proto = $.ui.autocomplete.prototype,
+            initSource = proto._initSource;
+
+        function filter(array, term) {
+            var matcher = new RegExp($.ui.autocomplete.escapeRegex(term), "i");
+            return $.grep(array, function(value) {
+                return matcher.test($("<div>").html(value.label || value.value || value).text());
+            });
+        }
+        $.extend(proto, {
+            _initSource: function() {
+                if (this.options.html && $.isArray(this.options.source)) {
+                    this.source = function(request, response) {
+                        response(filter(this.options.source, request.term));
+                    };
+                } else {
+                    initSource.call(this);
+                }
+            },
+            _renderItem: function(ul, item) {
+                return $("<li></li>").data("item.autocomplete", item).append($("<a></a>")[this.options.html ? "html" : "text"](item.label)).appendTo(ul);
+            }
+        });
+    })(jQuery);
+    var cache = {};
+    function googleSuggest(request, response) {
+
+    }
+    $(function() {
+        $('#hero-demo').tagEditor({
+            placeholder: '添加标签',
+            delimiter: ' ',
+            maxTags: 5,
+            maxLength: 10,
+            forceLowercase: false,
+            sortable: false,
+            onChange: function(field, editor, tags) {
+                console.log(tags)
+                $(".tag-warm").hide();
+                var commmon_tags=$(".tagSpan");
+                if(tags.length == 0){
+                    for(var j=0;j<commmon_tags.length;j++){
+                        commmon_tags[j].style.background="#f8f8f8";
+                        commmon_tags[j].style.color="#959595";
+                    }
+                }else if(tags.length == 5){
+                    $(".tag-warm").show();
+                }
+                $(".tag-add").attr("data-tag",tags)
+                for(var j=0;j<commmon_tags.length;j++){
+                    for(var i in tags){
+                        if(tags[i] == commmon_tags[j].innerHTML){
+                            commmon_tags[j].style.background="#eaf8f7";
+                            commmon_tags[j].style.color="#2db7b5";
+                            break;
+                        }
+                        else{
+
+                            commmon_tags[j].style.background="#f8f8f8";
+                            commmon_tags[j].style.color="#959595";
+                        }
+                    }
+                }
+
+            },
+            autocomplete: {
+                source: googleSuggest,
+                delay: 250,
+                html: true,
+                positiossssn: {
+                    collision: 'flip'
+                }
+            }
+        });
+        $(".common-tag span").on("click",function(){
+            var tag = this.innerHTML;
+            var commmon_tags=$(".tagSpan");
+            $('#hero-demo').tagEditor('addTag', tag);
+
+
+        })
+
+    });
+</script>
+
+<!-- <script type="text/javascript" src="http://src.hhz1.cn/static/wangEditor.js?1526369959494"></script>
+<script type="text/javascript" src="http://src.hhz1.cn/static/custom-menu-3.js"></script>
+<script type="text/javascript" src="http://src.hhz1.cn/static/custom-menu-4.js"></script>
+
+<script type="text/javascript" src="http://src.hhz1.cn/./pc_editor/bundle_b16fe9ac8e3b64260b23.js"></script> -->
+
+<script type="text/javascript">
+    var is_origin = $(".original-tag").attr("data-id");
+    if(is_origin == 1){
+        $(".original-tag").css("background-image","url(http://img.hhz1.cn/Op-imageShow/5b5a6300w00w00000ongzfc?iv=1)")
+    }else{
+        $(".original-tag").css("background-image","")
+    }
+</script>
+<script type="text/javascript">
+    var editor_margin = $('.neditor-container').css("margin-left")
+    var editor_marginN = parseInt(editor_margin.replace(/px/,""))-180;
+    var editor_marginPx = editor_marginN+"px";
+    // var preview_margin = $('.nav-right').css("margin-left")
+    // var preview_marginN = parseInt(editor_margin.replace(/px/,""));
+    console.log(editor_marginN)
+    $('.nav-left').css("margin-left",editor_marginPx)
+    window.onresize = adjuest;
+    adjuest();
+    function adjuest(){
+        editor_margin = $('.neditor-container').css("margin-left")
+        editor_marginN = parseInt(editor_margin.replace(/px/,""))-180;
+        editor_marginPx = editor_marginN+"px";
+        // preview_marginN = editor_marginN
+        // preview_marginPx =editor_marginN+180+"px";
+
+        // if(preview_marginN >= 0&& preview_marginN<=404){
+        //     $('.nav-right').css("margin-left",preview_marginPx)
+        // }
+        if(editor_marginN >= 0){
+            $('.nav-left').css("margin-left",editor_marginPx)
+        }
+
+        var body_height = $(window).height();
+        console.log(body_height)
+        $('#banner_section').css("height",body_height);
+    }
+    $(".warming-section").css("height",body_height);
+    $(".delete-section").css("height",body_height);
+    $('#tag-section').height(body_height);
+    $('#preview').height(body_height);
+</script>
+<script>
+    $("#banner_section").click(function(e){
+        $("#banner_section").hide();
+    })
+    $(".container1").click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+    })
+    $(".cropper-wrap-box").click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+    })
+
+    $("#preview").click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        $("#preview").hide();
+        $("body").css("overflow","auto")
+
+    });
+    $("#tag-section").click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        $("#tag-section").hide();
+        $("body").css("overflow","auto")
+    })
+    $(".tag-container").click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+    })
+    $("#mobile-moddle").click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+    })
+</script>
+
+<!-- </body>
+
+</html> -->
+</div>
+</div>

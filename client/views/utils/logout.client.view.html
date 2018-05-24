@@ -1,0 +1,12 @@
+<div ng-controller="LogoutController" id="logout">
+    <div>
+        <div>
+            <img ng-src="{{adminInfo.adminIcon}}" alt="">
+            <!-- <input id="file-1" class="file" type="file" name="media" multiple data-min-file-count="1"> -->
+        </div>
+        <p class="userName" ng-bind="adminInfo.adminName">admin</p>
+        <p class="userGrade" ng-bind="adminInfo.adminVip">超级管理员</p>
+        <button class="btn btn-md btn-info" ng-click="openLogoutPromptModel()">退出登录</button>
+    </div>
+    <ng-include src="'/client/views/popup/reminder.alert.view.html'"></ng-include>
+</div>

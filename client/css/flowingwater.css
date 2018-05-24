@@ -1,0 +1,52 @@
+/* 资金流水 */
+.flowingwaterTop{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 10px 15px 10px;
+    box-sizing: border-box;
+}
+.flowingwaterTopLeft ul li p{
+    font-size: 10px;
+}
+.flowingwaterTopLeft ul li{
+    float: left;
+    width: 60px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    margin: 6px 10px;
+    border-radius: 50px;
+    background: white;
+    font-size: 10px;
+}
+#bgColor p{
+    width: 60px;
+    text-align: center;
+    border-radius: 50px;
+    background: #414A5C;
+    color: rgb(202, 205, 214);
+}
+table{
+    background: #fff;
+}
+.flowingwaterMain table{
+    width: 100%;
+}
+.flowingwaterMain table p{
+    color: rgb(5, 90, 136);
+    font-size: 12px;
+}
+.flowingwaterMain table .ranking{
+    color: #ccc;
+    font-size: 10px;
+}
+.flowingwaterMain table th{
+    font-size: 12px;
+}
+.flowingwaterMain table tr{
+    height: 60px;
+}
+.flowingwaterMain table tbody td:nth-of-type(1){
+    width: 102px;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns=http://www.w3.org/1999/xhtml>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+        <meta name="renderer" content="webkit">
+        <meta content=always name=referrer>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <httpProtocol>
+            <customHeaders>
+                <add name="Access-Control-Allow-Origin" value="*" />
+                <add name="Access-Control-Allow-Headers" value="Origin, X-Requested-With, Content-Type, Accept" />
+            </customHeaders>
+        </httpProtocol>
+        <title>Bugoo | page</title>
+
+        <!-- 第三方 -->
+        <link rel="stylesheet" type="text/css" href="/public/lib/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/public/lib/bootstrap-fileinput/css/fileinput.min.css">
+        <link rel="stylesheet" type="text/css" href="/public/lib/daterangepicker/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="/public/lib/daterangepicker/daterangepicker.css">
+        <link rel="stylesheet" type="text/css" href="/public/lib/theplug-in-jquery/iconfont/iconfont.css">
+        <link rel="stylesheet" type="text/css" href="http://src.hhz1.cn/static/wangEditor.min.css?qqss">
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+        <link rel="stylesheet" type="text/css" href="http://src.hhz1.cn/static/jquery.tag-editor.css">
+        <link rel="stylesheet" href="http://src.hhz1.cn/./pc_editor/index_b16fe9ac8e3b64260b23.css">
+        <link rel="stylesheet" href="http://src.hhz1.cn/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://src.hhz1.cn/static/css/cropper.css">
+        <link rel="stylesheet" href="http://src.hhz1.cn/static/css/myCrop.css?2">
+
+        <!-- 自定义 -->
+        <link rel="stylesheet" type="text/css" href="/client/css/public.css">
+        <link rel="stylesheet" type="text/css" href="/client/css/issuer.css">
+        <link rel="stylesheet" type="text/css" href="/client/css/overview.css">
+        <link rel="stylesheet" type="text/css" href="/client/css/flowingwater.css">
+        <link rel="stylesheet" type="text/css" href="/client/css/editor.css">
+    </head>
+
+    <body class="container-fluid" ng-app="MainModule">
+        <div class="row">
+            <ng-include src="'/client/views/utils/menutitle.client.view.html'"></ng-include>
+        </div>
+        <div class="row clearfix">
+            <ng-include src="'/client/views/utils/menu.client.view.html'"></ng-include>
+            <div class="leftContentWrap">
+                <div ng-view class="content"></div>
+            </div>
+        </div>
+
+        <!-- 第三方插件 -->
+        <script src="http://gosspublic.alicdn.com/aliyun-oss-sdk.min.js"></script>
+        <script type="text/javascript" src="/public/lib/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="/public/lib/angular/angular.min.js"></script>
+        <script type="text/javascript" src="/public/lib/angular-route/angular-route.min.js"></script>
+        <script type="text/javascript" src="/public/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/public/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <script type="text/javascript" src="/public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script type="text/javascript" src="/public/lib/bootstrap-fileinput/js/fileinput.min.js"></script>
+        <script type="text/javascript" src="/public/lib/daterangepicker/jquery-1.11.1.min.js"></script>
+        <!-- <script type="text/javascript" src="/public/lib/theplug-in-jquery/js/jquery-1.11.1.min.js"></script> -->
+        <script type="text/javascript" src="/public/lib/daterangepicker/daterangepicker.js"></script>
+        <script type="text/javascript" src="/public/lib/daterangepicker/moment.js"></script>
+        <!-- <script type="text/javascript" src="/public/lib/theplug-in-jquery/js/rem.js"></script> -->
+
+        <script type="text/javascript" src="http://src.hhz1.cn/static/js/jquery.min.js" ></script>
+        <script type="text/javascript" src="http://src.hhz1.cn/static/js/exif.js"></script>
+        <script type="text/javascript" src="http://src.hhz1.cn/static/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://src.hhz1.cn/static/js/cropper.js?qwe"></script>
+        <script type="text/javascript" src="http://src.hhz1.cn/static/js/myCrop.js?v=1.0.4s"></script>
+        <script type="text/javascript" src="http://src.hhz1.cn/static/jquery.form.min.js" ></script>
+        <script src="http://www.jq22.com/jquery/jquery-ui-1.10.2.js"></script>
+        <script src="http://src.hhz1.cn/static/jquery.caret.min.js"></script>
+
+        <script src="http://src.hhz1.cn/static/jquery.tag-editor.js"></script>
+        <script type="text/javascript" src="http://src.hhz1.cn/static/wangEditor.js?1526369959494"></script>
+        <script type="text/javascript" src="http://src.hhz1.cn/static/custom-menu-3.js"></script>
+        <script type="text/javascript" src="http://src.hhz1.cn/static/custom-menu-4.js"></script>
+
+        <script type="text/javascript" src="http://src.hhz1.cn/./pc_editor/bundle_b16fe9ac8e3b64260b23.js"></script>
+
+
+        <!-- 公共部分-->
+        <script type="text/javascript" src="/client/modules/utils/value.client.util.js"></script>
+        <script type="text/javascript" src="/client/modules/main/main.client.controller.js"></script>
+
+        <!-- 自定义Js -->
+        <script type="text/javascript" src="/client/modules/utils/menu.client.controller.js"></script>
+        <script type="text/javascript" src="/client/modules/utils/menutitle.client.controller.js"></script>
+        <!-- 退出登录 -->
+        <script type="text/javascript" src="/client/modules/utils/logout.client.controller.js"></script>
+        <!-- 发行人管理 -->
+        <script type="text/javascript" src="/client/modules/issuer/issuer.client.controller.js"></script>
+    </body>
+</html>

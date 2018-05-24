@@ -1,0 +1,200 @@
+/*
+* @description: 重置
+* @author: fl
+*/
+html, body, div, span,button, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Microsoft YaHei', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+/*.col-xs-12{
+    padding: 0!important;
+    margin: 0!important;
+}*/
+body{
+    font-size: 12px;
+    width: 100%;
+    min-width: 860px;
+}
+html{-webkit-text-size-adjust:none;}
+img {
+    width: 100%;
+}
+a, a:link, a:visited {
+    text-decoration: none;
+}
+a:focus{
+    outline: 0;
+}
+ul {
+    list-style: none;
+}
+button,input,textarea,a,label,img{
+    -webkit-tap-highlight-color:transparent;
+    outline: none;
+    background-color: transparent;
+    border: none;
+}
+.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+    line-height: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+/*公共title*/
+.publicTitle{
+    width: 100%;
+    height: 60px;
+    background: #FFD77F;
+    position: fixed;
+    z-index: 10;
+}
+.publicTitle p{
+    font-size: 30px;
+    line-height: 60px;
+    color: #fff;
+}
+.administratorInfo{
+    display: inline-block;
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
+.administratorInfo img{
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    border-radius: 50%;
+    background: #ddd;
+}
+
+/*公共分页*/
+.paginationBox{
+    text-align: center;
+}
+/*左边导航栏*/
+.mainMenu{
+    text-align: center;
+    background: #414A5C;
+    color: #fff;
+    height: 100%;
+    position: fixed;
+    width: 18%;
+    min-width: 155px;
+    padding-top: 60px;
+}
+.mainMenu .menuList{
+    text-align: left;
+    margin-top: 100px
+}
+.mainMenu .menuList li{
+    border-bottom: 1px solid #2b3a55;
+}
+.mainMenu .menuList>li{
+    border-bottom: none;
+}
+.mainMenu .menuList li.hover{
+    color: #4384cb;
+}
+.mainMenu .menuList li>a{
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15%;
+    margin: 0;
+    cursor: pointer;
+    font-size: 16px;
+    color: #868B94;
+    width: 100%;
+}
+.mainMenu .menuList li>a:hover{
+    color: #fff;
+    background: #57DFEE;
+}
+.mainMenu .menuList li ul{
+    display: none;
+}
+.mainMenu .menuList li li{
+    background: #414A5C;
+    cursor: pointer;
+}
+.mainMenu .menuList li li a{
+    display: block;
+    padding-left: 30%;
+    height: 50px;
+    line-height: 50px;
+    color: #868B94;
+    font-size: 12px;
+    background: #435473;
+}
+.mainMenu .menuList li li a:hover,
+.mainMenu .menuList li li a.hover{
+    background: #435473;
+    color: skyblue;
+}
+
+/*退出登录*/
+#logout{
+    width: 100%;
+    height: 100%;
+    background: #F2F2F2;
+}
+#logout>div{
+    width: 300px;
+    height: 230px;
+    margin: 200px auto 0;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#logout>div div{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin: 40px auto 10px;
+    position: relative;
+    overflow: hidden;
+    background: #ddd;
+}
+#logout>div div input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    opacity: 0;
+}
+#logout>div .userName{
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+#logout>div .userGrade{
+    color: #CDCDCD;
+    text-align: center;
+    margin-bottom: 15px;
+}
+#logout>div button{
+    width: 200px;
+    margin-left: 50px;
+}
+/*模块部分*/
+.leftContentWrap{
+    padding: 0;
+    width: 82%;
+    height: 100%;
+    min-height: 980px;
+    background: #F2F2F2;
+    float: right;
+    padding-top: 60px;
+}

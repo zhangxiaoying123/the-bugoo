@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/public/lib/bootstrap/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/public/lib/theplug-in-jquery/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/public/lib/theplug-in-jquery/css/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="/public/lib/theplug-in-jquery/iconfont/iconfont.css"> -->
+    <title>bugoo 后台工具</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing:border-box;
+            -moz-box-sizing:border-box; /* Firefox */
+            -webkit-box-sizing:border-box; /* Safari */
+        }
+        body{
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            font-size: 12px;
+            min-width: 720px;
+        }
+        .text-center{
+            margin-top: 200px;
+        }
+        .row{
+            margin-top: 40px;
+        }
+        .titleNav{
+            background: #FFD77F;
+            height: 40px;
+        }
+        .titleNav p{
+            padding-left: 20px;
+            font-size: 24px;
+            line-height: 40px;
+            color: #fff;
+        }
+    </style>
+</head>
+    <body ng-app="SigninModule" ng-controller="SigninController">
+        <div class="titleNav">
+            <p>Bugoo</p>
+        </div>
+        <div class="container">
+            <div class="text-center">
+                <h1 class="logo-name">Bugoo</h1>
+                <h3>login to Bugoo</h3>
+            </div>
+            <div class="row">
+                <form role="form" class="col-md-4 col-sm-8 col-xs-8 col-md-offset-4 col-sm-offset-2 col-xs-offset-2" name="signinForm" novalidate ng-submit="submitForm()">
+                    <div class="form-group">
+                        <input type="userName" id="userName-input" name="userName" class="form-control" placeholder="用户名" required ng-model="formFields.username" autofocus="autofocus">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password-input" class="form-control" placeholder="密码" required ng-model="formFields.password">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">登录</button>
+                    </div>
+                    <uib-alert ng-repeat="msg in errorMsgs" type="danger" ng-bind="msg" style="color:red;"></uib-alert>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" src="/public/lib/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="/public/lib/angular/angular.min.js"></script>
+        <script type="text/javascript" src="/public/lib/angular-md5/angular-md5.min.js"></script>
+        <script type="text/javascript" src="/client/modules/utils/value.client.util.js"></script>
+        <script type="text/javascript" src="/client/modules/main/login.client.controller.js"></script>
+        <!-- <script type="text/javascript" src="/public/lib/theplug-in-jquery/js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="/public/lib/theplug-in-jquery/js/daterangepicker.js"></script>
+        <script type="text/javascript" src="/public/lib/theplug-in-jquery/js/moment.js"></script> -->
+    </body>
+</html>

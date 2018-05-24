@@ -1,0 +1,44 @@
+.bjui-pageContent{
+    position: absolute;
+    right: 10px;
+    top: 130px;
+}
+.thedata{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.TheCumulative{
+    width: 32%;
+    height: 450px;
+    background: white;
+    margin-top: 130px;
+    padding: 20px 10px;
+    box-sizing: border-box;
+}
+p{
+    color: #888;
+}
+.amountof{
+    font-size: 38px;
+    font-weight: bold;
+    padding: 5px 0 15px 0;
+    border-bottom: 1px solid rgb(235, 232, 232);
+    margin-bottom: 15px;
+}
+.poundage{
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 0 15px 0;
+    border-bottom: 1px solid rgb(235, 232, 232);
+    margin-bottom: 15px;
+}
+#poun>li{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

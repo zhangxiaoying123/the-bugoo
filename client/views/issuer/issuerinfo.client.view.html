@@ -1,0 +1,206 @@
+<!-- 资料管理 -->
+<script type="text/ng-template" id="issuerinfo.html" ng-show="isshow">
+<div>
+    <!-- <div id="main"> -->
+        <div class="modal-header clearfix">
+            <h4 class="modal-title" id="modal-title" style="font-size: 20px;font-weight: bold;">
+            资料管理
+            <p style="float: right;">
+                <button class="btn-sm aline" type="button" ng-click="cancelLogOutModel()">取消</button>
+                <button type="submit" class="btn btn-info btn-sm" ng-click="submitlogout()" ng-disabled="{true:'disabled'}[ !issuer.username || !issuer.birthday || !issuer.nation || !issuer.job || !issuer.attestation || !issuer.hobby || !issuer.presentation || !issuer.experience || !issuer.achievement || !issuer.city]" id="btn">保存</button>
+            </p>
+        </h4>
+        </div>
+        <div class="modal-body">
+            <div class="issuerInfoTopWrapper row">
+                <div class="issuerInfoTopWrapperLeft col-xs-2">
+                    <div class="issuerInfoIcon">
+                        <img ng-src="{{issuer.smallImage}}" id="smallImage">
+                    </div>
+                    <div class="issuerInfoReplace">
+                        <span>修改图像</span>
+                        <input id="file-0" class="file" type="file" name="avatar" multiple data-min-file-count="1">
+                    </div>
+                </div>
+                <div class="issuerInfoTopWrapperMiddle col-xs-5">
+                    <form class="form-horizontal" role="form" name="form_1">
+                        <div class="form-group col-xs-12">
+                            <label class="col-xs-3 control-label" for="username">昵称</label>
+                            <div class="col-xs-9">
+                                <input class="form-control" required id="username" type="text" placeholder="请输入用户昵称" ng-model="issuer.username" maxlength="30" name="username">
+                                <span style="color:red" ng-show="form_1.username.$dirty && form_1.username.$invalid">
+                                    <span ng-show="form_1.username.$error.required">*昵称不能未空</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label class="col-xs-3 control-label">分类</label>
+                            <div class="col-xs-9">
+                                <select ng-model="issuer.category" class="form-control">
+                                    <option ng-repeat="item in typeArray" value="{{item.id}}">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label class="col-xs-3 control-label" for="birthday">生日</label>
+                            <div class="col-xs-9">
+                                <input class="form-control" required id="birthday" type="date" ng-model="issuer.birthday" name="birthday">
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label class="col-xs-3 control-label">性别</label>
+                            <div class="col-xs-9">
+                                <select ng-model="issuer.gender" class="form-control">
+                                    <option ng-repeat="item in sexArray" value="{{item.id}}">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="issuerInfoTopWrapperRight col-xs-5">
+                    <form class="form-horizontal" role="form" name="form_2">
+                        <div class="form-group col-xs-12">
+                            <label class="col-xs-3 control-label" for="nation">民族</label>
+                            <div class="col-xs-9">
+                                <input class="form-control" required name="nation" id="nation" type="text" placeholder="请输入民族" ng-model="issuer.nation"/>
+                                <span style="color:red" ng-show="form_2.nation.$dirty && form_2.nation.$invalid">
+                                    <span ng-show="form_2.nation.$error.required">*民族不能未空</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label class="col-xs-3 control-label" for="city">城市</label>
+                            <div class="col-xs-9">
+                                <input class="form-control" required id="city" type="text" placeholder="请输入城市" name="city" ng-model="issuer.city"/>
+                                <span style="color:red" ng-show="form_2.city.$dirty && form_2.city.$invalid">
+                                    <span ng-show="form_2.city.$error.required">*城市不能未空</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label class="col-xs-3 control-label" for="job">职业</label>
+                            <div class="col-xs-9">
+                                <input class="form-control" required name="job" id="job" type="text" placeholder="请输入职业" ng-model="issuer.job"/>
+                                <span style="color:red" ng-show="form_2.job.$dirty && form_2.job.$invalid">
+                                    <span ng-show="form_2.job.$error.required">*职业不能未空</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label class="col-xs-3 control-label" for="attestation">认证</label>
+                            <div class="col-xs-9">
+                                <input class="form-control" required name="attestation" id="attestation" type="text" placeholder="请输入认证" ng-model="issuer.attestation"/>
+                                <span style="color:red" ng-show="form_2.attestation.$dirty && form_2.attestation.$invalid">
+                                    <span ng-show="form_2.attestation.$error.required">*认证不能未空</span>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <form name="form_3">
+                <div class="form-group">
+                    <label for="welfare-total" class="issuerInfoTitle">爱好: </label>
+                    <input type="text" ng-model="issuer.hobby" class="form-control" id="welfare-total" name="hobby" required>
+                    <span style="color:red" ng-show="form_3.hobby.$dirty && form_3.hobby.$invalid">
+                        <span ng-show="form_3.hobby.$error.required">*爱好不能未空</span>
+                    </span>
+                </div>
+            </form>
+
+            <div class="form-group" style="margin-bottom: 30px;">
+                <label for="welfare-total" class="issuerInfoTitle" style="width: 100%;">时间使用范围: </label>
+                <form class="form-inline" role="form">
+                    <div class="checkbox col-xs-2" ng-repeat="tag in tags track by $index">
+                        <label>
+                            <input type="checkbox" name="{{tag.title}}" ng-model="tags" ng-checked="isSelected(tag.id)" ng-click="updateSelection($event,tag.id)"> {{tag.title}}
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <form name="form_4">
+                <div class="form-group">
+                    <label for="welfare-total" class="issuerInfoTitle">简介: </label>
+                    <textarea type="text" ng-model="issuer.presentation" class="form-control" id="presentation" required name="presentation"></textarea>
+                    <span style="color:red" ng-show="form_4.presentation.$dirty && form_4.presentation.$invalid">
+                        <span ng-show="form_4.presentation.$error.required">*简介不能未空</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="welfare-total" class="issuerInfoTitle">主要经历: </label>
+                    <textarea type="text" ng-model="issuer.experience" class="form-control" id="experience" required name="experience"></textarea>
+                    <span style="color:red" ng-show="form_4.experience.$dirty && form_4.experience.$invalid">
+                        <span ng-show="form_4.experience.$error.required">*经历不能未空</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="welfare-total" class="issuerInfoTitle" ng-click="fn()">主要成就: </label>
+                    <textarea type="text" ng-model="issuer.achievement" class="form-control" id="achievement" required name="achievement"></textarea>
+                    <span style="color:red" ng-show="form_4.achievement.$dirty && form_4.achievement.$invalid">
+                        <span ng-show="form_4.achievement.$error.required">*成就不能未空</span>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <script type="text/javascript">
+                // 修改发行人头像
+                document.getElementById('file-0').addEventListener('change', function (e) {
+
+                    var scope = angular.element('#file-0').scope();
+                    var file = e.target.files[0];
+
+                   if (window.FileReader) {
+                        var reader = new FileReader();
+                        reader.readAsDataURL(file);
+
+                        //监听文件读取结束后事件
+                        reader.onloadend = function (e) {
+                            document.getElementById('smallImage').src = e.target.result;
+                            var formData = new FormData();
+                            formData.append("id", scope.issuer.id);
+                            formData.append("avatar", file); //加入文件对象
+                            $.ajax({
+                                type: 'POST',
+                                url: UTIL_FACTORY.IP + '/api/admin/uppublishavatar',
+                                data: formData,
+                                contentType: false,
+                                processData: false,//用于对data参数进行序列化处理 这里必须false
+                                cache: false,//上传文件无需缓存
+                                success: function(res) {
+                                    console.log(res)
+                                    
+                                },
+                                error: function(err) {
+                                    console.log('server error:' + err);
+                                },
+                                dataType: "json"
+                            });
+                        };
+                    } else {
+                        console.log("该浏览器不支持")
+                    }
+                });
+                
+                // 多行文本框到前端换行方法
+                // $(function(){
+                //     $("#presentation").each(function() {
+                //         var temp =  $(this).val().replace(/\n|\r\n/g,'<br/>');
+                //         $(this).html(temp);
+                //     });
+                // });
+                document.getElementById("btn").onclick = function() {
+                    var strContent = document.getElementsByClassName("form-control").value;
+                    // alert("处理前的strContent为\r\n"+strContent);
+                    strContent = strContent.replace(/\r\n/g, '<br/>'); //IE9、FF、chrome
+                    strContent = strContent.replace(/\n/g, '<br/>'); //IE7-8
+                    strContent = strContent.replace(/\s/g, ' '); //空格处理
+                    // alert("转换之后的html代码为\r\n"+strContent);
+                    // document.getElementById("wo").innerHTML = strContent;
+                    // console.log(strContent);
+                };
+            </script>
+        </div>
+    <!-- </div> -->
+</div>
+</script>

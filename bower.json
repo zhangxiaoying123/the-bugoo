@@ -1,0 +1,28 @@
+{
+  "name": "bugoo",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "luyuan0528 <409296367@qq.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "3.2.1",
+    "angular": "1.6.7",
+    "bootstrap": "3.3.6",
+    "angular-md5": "0.1.10",
+    "angular-route": "1.6.7",
+    "angular-bootstrap": "~1.1.0",
+    "angular-ui-bootstrap-datetimepicker": "0.14.4",
+    "bootstrap-fileinput": "4.3.1"
+  }
+}
